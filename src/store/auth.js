@@ -20,7 +20,6 @@ export function register({ email, password }) {
 }
 
 export function login({ email, password }) {
-  // Simulación: aceptamos cualquier combinación válida.
   if (!email || !password || password.length < 6) {
     throw new Error("Credenciales inválidas.");
   }

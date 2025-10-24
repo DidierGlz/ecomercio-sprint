@@ -1,7 +1,12 @@
 const KEY = "ec_cart";
 
-export function loadCart(){ try{ return JSON.parse(localStorage.getItem(KEY))||[] }catch{ return [] } }
-export function saveCart(items){ localStorage.setItem(KEY, JSON.stringify(items)); }
+export function loadCart(){
+  try{ return JSON.parse(localStorage.getItem(KEY))||[] }
+  catch{ return [] }
+}
+export function saveCart(items){
+  localStorage.setItem(KEY, JSON.stringify(items));
+}
 export function addToCart(item){
   const cart = loadCart();
   const found = cart.find(x=>x.id===item.id);

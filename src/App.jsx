@@ -4,19 +4,21 @@ import Categories from "./components/Categories";
 import ProductList from "./components/ProductList";
 import ProductDetail from "./components/ProductDetail";
 import Cart from "./components/Cart";
+import Filters from "./components/Filters";
 
-import Auth from "./components/Auth";         // NUEVO
-import Account from "./components/Account";   // NUEVO
-import Checkout from "./components/Checkout"; // NUEVO
+import Auth from "./components/Auth";
+import Account from "./components/Account";
+import Checkout from "./components/Checkout";
 
 import { loadCart, addToCart, clearCart } from "./store/cart";
 import { isLoggedIn } from "./store/auth";
 
 export default function App(){
-  const [view, setView] = useState("categories");
+  const [view, setView] = useState("categories"); // "categories" | "cart" | "checkout" | "auth"
   const [category, setCategory] = useState(null);
   const [detail, setDetail] = useState(null);
   const [cart, setCart] = useState(loadCart());
+  const [filters, setFilters] = useState({});
 
   const handleAdd = (prod)=>{
     const updated = addToCart(prod);
@@ -36,8 +38,12 @@ export default function App(){
 
       {view==="categories" && (
         <>
-          <Categories current={category} onSelect={setCategory} />
-          <ProductList category={category} onOpen={setDetail}/>
+          <Categories
+            current={category}
+            onSelect={(c)=>{ setCategory(c); setFilters(f=>({ ...f, category:"" })); }}
+          />
+          <Filters value={filters} onChange={setFilters} />
+          <ProductList category={category} filters={filters} onOpen={setDetail}/>
           <ProductDetail product={detail} onAdd={handleAdd} onClose={()=>setDetail(null)}/>
           <div style={{marginTop:12}}>
             <button onClick={goCheckout}>Ir a Checkout</button>
@@ -54,12 +60,10 @@ export default function App(){
       )}
 
       {view==="auth" && (
-        <>
+        <div style={{display:"grid", gap:16}}>
           <Auth onAuth={() => setView(isLoggedIn() ? "categories" : "auth")} />
-          <div style={{marginTop:16}}>
-            <Account />
-          </div>
-        </>
+          <Account />
+        </div>
       )}
     </div>
   );

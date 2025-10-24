@@ -1,7 +1,18 @@
 import { PRODUCTS } from "../data/products";
 
-export default function ProductList({ category, onOpen }) {
-  const list = category ? PRODUCTS.filter(p=>p.category===category) : PRODUCTS;
+export default function ProductList({ category, filters, onOpen }) {
+  let list = category ? PRODUCTS.filter(p => p.category === category) : PRODUCTS;
+
+  // filtros por precio (opcional)
+  const min = Number(filters?.min || 0);
+  const max = Number(filters?.max || 0);
+
+  if (min) list = list.filter(p => p.price >= min);
+  if (max) list = list.filter(p => p.price <= max);
+
+  // filtro por categoría desde Filters (si se usa ese selector)
+  if (filters?.category) list = list.filter(p => p.category === filters.category);
+
   return (
     <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(180px,1fr))",gap:12,marginTop:12}}>
       {list.map(p=>(
@@ -12,7 +23,11 @@ export default function ProductList({ category, onOpen }) {
           <button onClick={()=>onOpen(p)} style={{marginTop:8}}>Ver detalle</button>
         </div>
       ))}
-      {!list.length && <p>No hay productos en esta categoría.</p>}
+      {!list.length && (
+        <p style={{gridColumn:"1 / -1", textAlign:"center", color:"#666"}}>
+          No hay productos que coincidan con los filtros.
+        </p>
+      )}
     </div>
   );
 }

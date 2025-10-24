@@ -17,7 +17,6 @@ export default function Checkout({ onDone }) {
 
   const pay = (e) => {
     e.preventDefault();
-    // Validaciones mínimas
     if (!form.name || form.card.length < 12 || form.cvv.length < 3) {
       return alert("Revisa los datos de pago.");
     }
