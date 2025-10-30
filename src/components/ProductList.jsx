@@ -1,16 +1,15 @@
-import { PRODUCTS } from "../data/products";
+// Reemplaza la importación anterior de PRODUCTS:
+import { getAllProducts } from "../store/catalog";
 
 export default function ProductList({ category, filters, onOpen }) {
-  let list = category ? PRODUCTS.filter(p => p.category === category) : PRODUCTS;
+  let list = getAllProducts(); // <-- ahora del catálogo combinado
 
-  // filtros por precio (opcional)
+  if (category) list = list.filter(p => p.category === category);
+
   const min = Number(filters?.min || 0);
   const max = Number(filters?.max || 0);
-
   if (min) list = list.filter(p => p.price >= min);
   if (max) list = list.filter(p => p.price <= max);
-
-  // filtro por categoría desde Filters (si se usa ese selector)
   if (filters?.category) list = list.filter(p => p.category === filters.category);
 
   return (

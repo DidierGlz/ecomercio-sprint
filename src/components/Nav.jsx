@@ -4,6 +4,8 @@ export default function Nav({ current, onChange }) {
     { key:"cart", label:"Carrito" },
     { key:"checkout", label:"Checkout" },
     { key:"auth", label:"Cuenta" },
+    { key:"admin", label:"Inventario" },     // NUEVO
+    { key:"notifs", label:"Notificaciones" } // NUEVO
   ];
   return (
     <nav style={{display:"flex",gap:8,margin:"12px 0",flexWrap:"wrap"}}>

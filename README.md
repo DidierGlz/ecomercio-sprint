@@ -1,48 +1,56 @@
-# 🛍️ Proyecto E-commerce React – Metodología SCRUM
+# 🛍️ Proyecto E-commerce React – Metodología SCRUM  
+**Autor:** Néstor Didier Lino González  
+**Universidad de Guadalajara**
+
+---
 
 ## 📘 Descripción general
-Este proyecto consiste en el desarrollo de una aplicación web de **comercio electrónico** construida con **React** y gestionada bajo la **metodología ágil SCRUM**.  
-El sistema permite la navegación entre categorías de productos, la visualización de detalles, la gestión del carrito de compras y la simulación de un proceso de pago seguro.  
-El proyecto se desarrolló en iteraciones (Sprints) basadas en un Product Backlog previamente definido.
+Aplicación web de **comercio electrónico** desarrollada en **React** y gestionada bajo la **metodología ágil SCRUM**.  
+El sistema permite navegar entre categorías de productos, visualizar detalles, gestionar un carrito de compras, simular pagos, administrar inventario y recibir notificaciones promocionales.
+
+Cada iteración del proyecto (Sprint) entregó funcionalidades concretas y medibles conforme al **Product Backlog**.
 
 ---
 
 ## 🎯 Objetivos del proyecto
-- Aplicar los principios de **SCRUM** en un entorno de desarrollo real con React.  
-- Desarrollar de forma incremental las funcionalidades más importantes del sistema.  
-- Mantener un control del avance del proyecto mediante **backlogs y sprint schedules**.  
-- Entregar incrementos funcionales al finalizar cada sprint.  
+- Aplicar la **metodología SCRUM** en un entorno real de desarrollo web.  
+- Implementar componentes modulares e iterativos con **React**.  
+- Mantener un control continuo del avance mediante **Backlog**, **Sprints** y **Retroalimentaciones**.  
+- Entregar incrementos funcionales en cada Sprint con documentación y evidencia.  
 
 ---
 
 ## 🧩 Funcionalidades principales
-- ✅ Navegación entre categorías de productos.  
-- ✅ Visualización detallada de cada producto (imagen, descripción, precio).  
-- ✅ Carrito de compras con subtotal y persistencia de datos (localStorage).  
-- ✅ Simulación de flujo de pago y registro/login de usuarios.  
-- 🔜 Gestión de inventario y notificaciones (Sprint 3).  
+| Categoría | Descripción | Estado |
+|------------|--------------|--------|
+| 🗂️ Catálogo de productos | Navegación por categorías, filtros por precio y detalle de producto | ✅ |
+| 🛒 Carrito de compras | Añadir, eliminar y calcular total con persistencia en `localStorage` | ✅ |
+| 💳 Checkout (pago simulado) | Validación de datos, registro de pedido e historial del usuario | ✅ |
+| 👤 Cuenta de usuario | Registro/login y visualización de pedidos anteriores | ✅ |
+| ⚙️ Inventario (Admin) | Alta, edición y eliminación de productos persistentes | ✅ |
+| 🔔 Notificaciones | Opt-in/out y ejemplo de mensajes promocionales | ✅ |
 
 ---
 
-## 📅 Sprint Schedule
-| Sprint | Objetivo | Historias incluidas | Estado |
-|--------|-----------|---------------------|--------|
-| Sprint 1 | Navegación, detalle y carrito | US-1, US-2, US-3 | ✅ Completado |
-| Sprint 2 | Pago seguro y cuentas de usuario | US-4, US-5 | 🟡 En progreso |
-| Sprint 3 | Inventario y notificaciones | US-6, US-7 | 🔜 Pendiente |
+## 📅 Sprint Schedule (actualizado)
+| Sprint | Objetivo | Historias | Estado |
+|--------|-----------|------------|--------|
+| Sprint 1 | Navegación, Detalle y Carrito | US-1, US-2, US-3 | ✅ Completado |
+| Sprint 2 | Cuenta, Checkout y Filtros (parcial) | US-4, US-5, US-8 | ✅ Completado |
+| Sprint 3 | Inventario, Notificaciones y cierre de filtros | US-6, US-7, US-8 | ✅ Completado |
 
 ---
 
 ## ⚙️ Tecnologías utilizadas
-- **React 18** (con Vite)  
+- **React 18 (Vite)**  
 - **HTML5 / CSS3 / JavaScript (ES6)**  
-- **LocalStorage** para persistencia de datos  
-- **Git & GitHub** para control de versiones  
-- **Trello** como herramienta de gestión ágil  
+- **LocalStorage** (persistencia)  
+- **Trello / Jira** (gestión ágil)  
+- **Git / GitHub** (control de versiones)  
 
 ---
 
 ## 💻 Instalación y ejecución
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/<TU-USUARIO>/ecomercio-sprint.git
+   git clone https://github.com/DidierGlz/ecomercio-sprint.git

@@ -5,6 +5,8 @@ import ProductList from "./components/ProductList";
 import ProductDetail from "./components/ProductDetail";
 import Cart from "./components/Cart";
 import Filters from "./components/Filters";
+import AdminInventory from "./components/AdminInventory";
+import Notifications from "./components/Notifications";
 
 import Auth from "./components/Auth";
 import Account from "./components/Account";
@@ -65,6 +67,8 @@ export default function App(){
           <Account />
         </div>
       )}
+      {view==="admin" && <AdminInventory />}
+      {view==="notifs" && <Notifications />}
     </div>
   );
 }
